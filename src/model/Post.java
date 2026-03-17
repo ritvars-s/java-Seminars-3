@@ -19,13 +19,6 @@ public class Post {
 	}
 	
 	public void setMsg(String newMsg) {
-		msg = newMsg;
-	}
-	public void getLike() {
-		countOfLikes++;
-	}
-
-	Post(String newMsg){
 		if((newMsg != null) && (!newMsg.isEmpty()) && (newMsg.length() < 1000)) {
 			msg = newMsg;
 		}
@@ -33,9 +26,21 @@ public class Post {
 			msg = "Unknown post";
 		}
 	}
+	public void setDateTime() {
+		dateTime = LocalDateTime.now();
+	}
+	public void setCountOfLikes() {
+		countOfLikes++;
+	}
+	Post(){
+		setMsg("Sveiciens!");
+	}
+	Post(String newMsg){
+		setMsg(newMsg);
+	}
 	
 	public String toString() {
-		String result = msg + " | " + dateTime + " | " + countOfLikes;
+		String result = msg + " (" + dateTime + ") " + countOfLikes;
 		return result;
 	}
 	
