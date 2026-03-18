@@ -29,7 +29,7 @@ public class Post {
 	public void setDateTime() {
 		dateTime = LocalDateTime.now();
 	}
-	public void setCountOfLikes() {
+	public void increaseCountOfLikes() {
 		countOfLikes++;
 	}
 	Post(){

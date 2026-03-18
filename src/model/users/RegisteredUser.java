@@ -22,7 +22,7 @@ public class RegisteredUser extends GuestUser{
 		}
 		
 		public void setUsername(String newUsername) {
-			if((newUsername != null) && (!newUsername.isEmpty()) && newUsername.length() <= 30) {
+			if((newUsername == null) || (newUsername.isEmpty()) || newUsername.length() <= 30) {
 				username = "DefaultUser";
 			}
 			else {
@@ -30,14 +30,36 @@ public class RegisteredUser extends GuestUser{
 			}
 		}
 		public void setPassword(String newPassword) {
-			try {
-				MessageDigest md = MessageDigest.getInstance("MD5");
-				md.update(newPassword.getBytes());
-				password = md.digest().toString();
-			}
-			catch(Exception e){
+			if(newPassword != null && !newPassword.isEmpty() && newPassword.matches("/^(?=.*?[A-Z])")) {
 				
+				try {
+					MessageDigest md = MessageDigest.getInstance("MD5");
+					md.update(newPassword.getBytes());
+					password = md.digest().toString();
+				}
+				catch(Exception e){
+					password = "0000";
+				}
 			}
 			
+			
+		}
+		public void setTitle(String newTitle) {
+			if((newTitle != null) && (!newTitle.isEmpty())) {
+				title = newTitle;
+			}
+			else {
+				title = "Title";
+			}
+		}
+		RegisteredUser(){
+			setUsername("");
+			setPassword("");
+			setTitle("");
+		}
+		RegisteredUser(String newUsername, String newTitle, String newPassword){
+			setUsername(newUsername);
+			setPassword(newTitle);
+			setTitle(newPassword);
 		}
 }
