@@ -2,10 +2,11 @@ package model.users;
 
 import java.security.MessageDigest;
 
-public class RegisteredUser extends GuestUser{
+import service.IPostPublish;
+
+public abstract class RegisteredUser extends GuestUser implements IPostPublish{
 
 		private String username;
-		private String title;
 		private String password;
 		
 		
@@ -13,10 +14,6 @@ public class RegisteredUser extends GuestUser{
 		public String getUsername() {
 			return username;
 		}
-		public String getTitle() {
-			return title;
-		}
-		
 		public String getPassword() {
 			return password;
 		}
@@ -44,28 +41,19 @@ public class RegisteredUser extends GuestUser{
 			
 			
 		}
-		public void setTitle(String newTitle) {
-			if((newTitle != null) && (!newTitle.isEmpty())) {
-				title = newTitle;
-			}
-			else {
-				title = "Title";
-			}
-		}
 		public RegisteredUser(){
 			super();
 			setUsername("");
 			setPassword("");
-			setTitle("");
 		}
 		public RegisteredUser(String newUsername, String newTitle, String newPassword){
 			super();
 			setUsername(newUsername);
 			setPassword(newTitle);
-			setTitle(newPassword);
 		}
+		
 		public String toString() {
-			String result = username + title;
+			String result = id + ": " +username + password;
 			return result;
 		}
 }

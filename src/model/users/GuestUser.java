@@ -1,7 +1,7 @@
 package model.users;
 
 public class GuestUser {
-	private long id;
+	protected long id;
 	
 	private static long counter = 0;
 	
