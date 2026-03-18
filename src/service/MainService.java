@@ -13,11 +13,30 @@ public class MainService {
 		
 		PrivateUser u2 = new PrivateUser();
 		allUsers.add(u2);
-		u2.createAndPublishPost("SveiciensJAva nodarbiba", PostType.publicType);
-		u2.createAndPublishPost("Sveiciens", PostType.privateType);
+		
 		PrivateUser u3 = new PrivateUser("Jariks", "parole");
 		allUsers.add(u3);
 		System.out.println(allUsers);
-		
+		try
+		{
+		if(u3.login("Jariks", "parole")){
+			u3.createAndPublishPost("SveiciensJAva nodarbiba", PostType.publicType);
+			u3.createAndPublishPost("Sveiciens", PostType.privateType);
+			System.out.println("-------------------------");
+			u3.followPrivateUser(u2);
+			//System.out.println()
+		}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public static ArrayList<GuestUser> getAllUsers() {
+		return allUsers;
+	}
+
+	public static void setAllUsers(ArrayList<GuestUser> allUsers) {
+		MainService.allUsers = allUsers;
 	}
 }

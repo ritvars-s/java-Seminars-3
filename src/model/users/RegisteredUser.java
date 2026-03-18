@@ -1,8 +1,10 @@
 package model.users;
 
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import service.IPostPublish;
+import service.MainService;
 
 public abstract class RegisteredUser extends GuestUser implements IPostPublish{
 
@@ -56,4 +58,33 @@ public abstract class RegisteredUser extends GuestUser implements IPostPublish{
 			String result = id + ": " +username + " " + password;
 			return result;
 		}
+		
+		
+		public boolean login(String newUsername, String newPassword) throws NoSuchAlgorithmException {
+			for(GuestUser tempU : MainService.getAllUsers()) {
+				if (tempU instanceof RegisteredUser){
+					RegisteredUser tempRU = (RegisteredUser)tempU;
+					
+					MessageDigest md = MessageDigest.getInstance("MD5");
+					md.update(newPassword.getBytes());
+					String newPasswordEncoded = new String(md.digest());
+					
+					if(tempRU.getUsername() == newUsername && tempRU.getPassword() == newPasswordEncoded) {
+						return true; 
+					}
+					
+				}
+			}
+			return false;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }
