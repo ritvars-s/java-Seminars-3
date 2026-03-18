@@ -52,14 +52,18 @@ public class RegisteredUser extends GuestUser{
 				title = "Title";
 			}
 		}
-		RegisteredUser(){
+		public RegisteredUser(){
 			setUsername("");
 			setPassword("");
 			setTitle("");
 		}
-		RegisteredUser(String newUsername, String newTitle, String newPassword){
+		public RegisteredUser(String newUsername, String newTitle, String newPassword){
 			setUsername(newUsername);
 			setPassword(newTitle);
 			setTitle(newPassword);
+		}
+		public String toString() {
+			String result = username + title;
+			return result;
 		}
 }
