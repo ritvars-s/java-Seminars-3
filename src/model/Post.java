@@ -32,10 +32,10 @@ public class Post {
 	public void increaseCountOfLikes() {
 		countOfLikes++;
 	}
-	Post(){
+	public Post(){
 		setMsg("Sveiciens!");
 	}
-	Post(String newMsg){
+	public Post(String newMsg){
 		setMsg(newMsg);
 	}
 	

@@ -32,8 +32,20 @@ public class PrivateUser extends RegisteredUser{
 	
 	@Override
 	public void createAndPublishPost(String newMsg, PostType newPostType) {
-		// TODO Auto-generated method stub
+		// TODO veikt input parametru parbaudi
 		
+		if(newPostType.equals(PostType.privateType)) {
+			allPrivatePosts.add(new Post(newMsg));
+		}
+		else if(newPostType.equals(PostType.publicType)) {
+			allPublicPosts.add(new Post(newMsg));
+		}
+		
+	}
+	public void followPrivateUser(RegisteredUser newUser) {
+		if(!allMyFollowers.contains(newUser)) {
+			allMyFollowers.add(newUser);
+		}
 	}
 	
 }
