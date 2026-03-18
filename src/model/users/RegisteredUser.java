@@ -46,10 +46,10 @@ public abstract class RegisteredUser extends GuestUser implements IPostPublish{
 			setUsername("");
 			setPassword("");
 		}
-		public RegisteredUser(String newUsername, String newTitle, String newPassword){
+		public RegisteredUser(String newUsername, String newPassword){
 			super();
 			setUsername(newUsername);
-			setPassword(newTitle);
+			setPassword(newPassword);
 		}
 		
 		public String toString() {
