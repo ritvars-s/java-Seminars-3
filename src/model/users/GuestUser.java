@@ -12,7 +12,7 @@ public class GuestUser {
 		id = counter++;
 	}
 	
-	GuestUser(){
+	public GuestUser(){
 		setID();
 	}
 	

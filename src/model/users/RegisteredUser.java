@@ -27,7 +27,7 @@ public abstract class RegisteredUser extends GuestUser implements IPostPublish{
 			}
 		}
 		public void setPassword(String newPassword) {
-			if(newPassword != null && !newPassword.isEmpty() && newPassword.matches("/^(?=.*?[A-Z])")) {
+			if(newPassword != null && !newPassword.isEmpty()) {
 				
 				try {
 					MessageDigest md = MessageDigest.getInstance("MD5");
@@ -53,7 +53,7 @@ public abstract class RegisteredUser extends GuestUser implements IPostPublish{
 		}
 		
 		public String toString() {
-			String result = id + ": " +username + password;
+			String result = id + ": " +username + " " + password;
 			return result;
 		}
 }

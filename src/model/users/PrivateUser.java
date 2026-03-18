@@ -25,7 +25,7 @@ public class PrivateUser extends RegisteredUser{
 		super(newUsername, newPassword);
 	}
 	public String toString() {
-		String result = super.toString() + "sludinajumi: \n ->" + allPrivatePosts + "\n ->" + allPublicPosts + "\n sekotaji \n -> " + allMyFollowers; 
+		String result = super.toString() + "\n sludinajumi: \n ->" + allPrivatePosts + "\n ->" + allPublicPosts + "\n sekotaji \n -> " + allMyFollowers; 
 		return result;
 	}
 	
