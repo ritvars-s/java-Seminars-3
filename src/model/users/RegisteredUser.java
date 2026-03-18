@@ -53,11 +53,13 @@ public class RegisteredUser extends GuestUser{
 			}
 		}
 		public RegisteredUser(){
+			super();
 			setUsername("");
 			setPassword("");
 			setTitle("");
 		}
 		public RegisteredUser(String newUsername, String newTitle, String newPassword){
+			super();
 			setUsername(newUsername);
 			setPassword(newTitle);
 			setTitle(newPassword);
